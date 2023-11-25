@@ -1,0 +1,32 @@
+﻿<Window x:Class="POSSystem_Retail.ItemSearchLookup_Returns"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Retail"
+        mc:Ignorable="d"
+         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Item Search" Height="340.00" Width="630.00">
+    <Grid>
+        <DataGrid 
+                  AutoGenerateColumns="False" x:Name="grdLookUpItems" 
+                  CanUserAddRows="False"  
+                  HorizontalScrollBarVisibility="Visible"                 
+                  RowHeight="25"
+                  FontSize="15"
+                  IsReadOnly="True" 
+                  RowHeaderWidth="0"
+                  PreviewMouseLeftButtonUp="GrdLookUpItems_PreviewMouseLeftButtonUp"                     
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>                
+                <DataGridTextColumn Binding="{Binding ItemName}" Width="250" Header="Item Name"/>
+                <DataGridTextColumn Binding="{Binding QuantityOpen}" Width="200" Header="Open Qty"/>
+                <DataGridTextColumn Binding="{Binding PriceSell}" Width="200" Header="Price Sell"/>               
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>

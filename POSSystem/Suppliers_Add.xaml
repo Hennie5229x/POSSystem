@@ -1,0 +1,71 @@
+﻿<Window x:Class="POSSystem.Suppliers_Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem"
+        mc:Ignorable="d"
+        Title="Add a Supplier" Height="618.333" Width="403.019"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="20,30,10,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Company Name:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_CompanyName" Width="200" Height="24" KeyUp="Tbx_CompanyName_KeyUp" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Supplier Name:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_SupplierName" Width="200" Height="24" KeyUp="Tbx_SupplierName_KeyUp" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0" >
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Bill To Address:" Width="150" />
+                <TextBox FontSize="15" TextWrapping="Wrap" AcceptsReturn="True" TabIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_BillToAddress" Width="200" Height="100" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,6,0,0" >
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Ship To Address:" Width="150" />
+                <TextBox FontSize="15" TextWrapping="Wrap" AcceptsReturn="True" TabIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_ShipToAddress" Width="200" Height="100" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,6,0,0" >
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Billing Information:" Width="150" />
+                <TextBox FontSize="15" TextWrapping="Wrap" AcceptsReturn="True"  TabIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_BillingInformation" Width="200" Height="60" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Contact Person:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_ContactPerson" Width="200" Height="24" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Telephone:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_Telephone" Width="200" Height="24" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Cell Phone:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_CellPhone" Width="200" Height="24" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Email:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_Email" Width="200" Height="24"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="VAT Number:" Width="150"/>
+                <TextBox FontSize="15" TabIndex="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_VATNumber" Width="200" Height="24" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <Button x:Name="btn_Back" FontSize="15" Content="Back" HorizontalAlignment="Left" Margin="180,20,0,0" VerticalAlignment="Top" Width="82" Height="30" Click="Btn_Back_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnAddSupplier" FontSize="15" Content="Add" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="78" Height="30" Click="BtnAddSupplier_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+       
+    </Grid>
+</Window>

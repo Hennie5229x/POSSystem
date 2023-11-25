@@ -1,0 +1,324 @@
+﻿<Window x:Class="POSSystem_Retail.Returns"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Retail"
+        mc:Ignorable="d"
+        Title="POS" WindowState="Maximized"
+        WindowStartupLocation="CenterScreen" Width="1920" Height="1050" 
+        
+        >
+        
+        <Grid x:Name="GridPOS" KeyboardNavigation.DirectionalNavigation="None" >
+
+            <Viewbox Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Stretch="Fill" >
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,800">
+                    
+                    <StackPanel Orientation="Horizontal" Width="740">
+                    <Button x:Name="btn_Linked" FontSize="25"  HorizontalAlignment="Left" Margin="0,15,10,0" VerticalAlignment="Top" Width="135" Height="75" Click="btn_Linked_Click" >
+                        <TextBlock x:Name="tblLinked" Text="SLIP" TextWrapping="Wrap" TextAlignment="Center"/>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="btn_UnLinked" FontSize="25"  HorizontalAlignment="Left" Margin="0,15,10,0" VerticalAlignment="Top" Width="135" Height="75" Click="btn_UnLinked_Click" >
+                        <TextBlock x:Name="tblUnLinked" Text="NO SLIP" TextWrapping="Wrap" TextAlignment="Center"/>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <TextBlock Text="Doc Num:" FontSize="30" Height="45" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsEnabled="False" TextAlignment="Center"/>
+                            <TextBox x:Name="tbx_LinkedDocNum" FontSize="30" HorizontalContentAlignment="Center" Height="45" Margin="10,10,0,10" Width="300" KeyDown="tbx_LinkedDocNum_KeyDown" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="PRESS ENTER OR TAB OUT" TextAlignment="Center" FontSize="20" Width="300" Margin="140,-10,0,0" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                    <StackPanel Margin="10,0,10,0" Width="500">
+                        <TextBlock x:Name="tblDocType" FontSize="40" Text="TYPE: UN-LINKED RETURN" />
+                        <TextBlock x:Name="tblDocumentTotal" FontSize="40" Text="TOTAL: R-100.00"/>
+                    </StackPanel>
+                </StackPanel>
+
+           
+        </Viewbox>
+
+            
+
+
+            <Viewbox Margin="10,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+                
+               <StackPanel Orientation="Horizontal" Margin="0,0,0,0" >
+                    
+                 <StackPanel Orientation="Vertical" Margin="0,0,10,0" >
+                        <DataGrid x:Name="grdItems" Margin="0,0,0,0" HorizontalAlignment="Left" Height="400" Width="750"
+                                AutoGenerateColumns="False"
+                                CanUserAddRows="False"  
+                                HorizontalScrollBarVisibility="Disabled"             
+                                RowHeight="30"
+                                FontSize="15"
+                                IsReadOnly="False"
+                                AlternatingRowBackground="LightGray"
+                                SelectedValuePath="Id"
+                                KeyboardNavigation.DirectionalNavigation="None"
+                                Focusable="False"
+                              
+                                IsEnabled="True"
+                                Background="LightGray"
+                                Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                FontWeight="Bold"
+                                IsHitTestVisible="False" RowHeaderWidth="0"
+                              >
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="CornflowerBlue"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="CornflowerBlue"/>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>
+                                <DataGridTextColumn Binding="{Binding ItemName}" Width="300" Header="Item"/>
+                                <DataGridTextColumn Binding="{Binding Qty}" Width="120" Header="Qty"/>
+                                <DataGridTextColumn Binding="{Binding UnitPrice}" Width="150" Header="Unit Price"/>
+                                <DataGridTextColumn Binding="{Binding LineTotal}" Width="300" Header="Sub Total"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button x:Name="btn_Up" FontSize="50"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Background="LightGreen" Height="80" Width="100" Click="Btn_Up_Click">
+                                <TextBlock Text="🡅" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Down" FontSize="50" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Bottom" Background="LightGreen" Height="80" Width="100" Click="Btn_Down_Click">
+                                <TextBlock Text="🡇" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Qty" FontSize="25"  HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="100" Click="Btn_Qty_Click">
+                                <TextBlock Text="🧮      QTY" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Remove" FontSize="25" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="110" Click="Btn_Remove_Click">
+                                <TextBlock Text="🗑   REMOVE" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_PriceChange" FontSize="25" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="190" Click="Btn_PriceChange_Click">
+                                <TextBlock Text="✎                PRICE CHANGE" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        <Button x:Name="btn_Restock" FontSize="25" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="120" Click="btn_Restock_Click">
+                            <StackPanel>                                
+                                <CheckBox x:Name="cbx_Restock" Height="15.5" Width="16" IsChecked="False" Margin="5,0,0,0">
+                                    <CheckBox.LayoutTransform>
+                                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                                    </CheckBox.LayoutTransform>
+                                </CheckBox>
+                                <TextBlock Text="RESTOCK" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                                    <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                       
+
+
+                    </StackPanel>
+                   
+                     
+
+                </StackPanel>               
+
+                 <StackPanel Orientation="Vertical" Margin="0,0,10,200" >
+                        <StackPanel Orientation="Horizontal" Margin="0,0" >
+                            <TextBox x:Name="tbx_Barcode" FontSize="30" HorizontalContentAlignment="Center" Height="50" Margin="0,0,0,10" Width="369" GotFocus="Tbx_Barcode_GotFocus" LostFocus="Tbx_Barcode_LostFocus" KeyUp="Tbx_Barcode_KeyUp" PreviewKeyUp="GrdItems_KeyDown"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0" >
+                            <Button x:Name="btn_One" FontSize="25" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="Btn_One_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Two" FontSize="25" Content="2" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Two_Click" >
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Three" FontSize="25" Content="3" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Three_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0">
+                            <Button x:Name="btn_Four" FontSize="25" Content="4" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Four_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Five" FontSize="25" Content="5" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="Btn_Five_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Six" FontSize="25" Content="6" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Six_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btn_Seven" FontSize="25" Content="7" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Seven_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Eight" FontSize="25" Content="8" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Eight_Click" >
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Nine" FontSize="25" Content="9" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Nine_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btn_Clear" FontSize="25" Content="⌧ CLEAR" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Clear_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Zero" FontSize="25" Content="0" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Zero_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_Enter" FontSize="25" Content="↵ ENTER" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Enter_Click">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                   
+                 <StackPanel Orientation="Vertical" Margin="0,0,5,0" Height="350" VerticalAlignment="Top">
+                        <Button x:Name="btn_AddAllItems" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="btn_AddAllItems_Click" >
+                            <TextBlock x:Name="tblAdd" Text="ADD ALL ITEMS" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_LinkedItems" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="btn_LinkedItems_Click" >
+                            <TextBlock x:Name="tblLinkedItems" Text="LINKED ITEMS" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    <Button x:Name="btn_Search" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_Search_Click" >
+                                <TextBlock x:Name="tblSearch" Text="🔍 SEARCH" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button x:Name="btn_ItemButtons" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_ItemButtons_Click" >
+                                <TextBlock x:Name="tblItemButtons" Text="📦     ITEMS" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>  
+                    </StackPanel>                
+
+
+
+
+            </StackPanel>
+                
+
+           
+
+
+        </Viewbox>
+
+        <Viewbox HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,20,20" Stretch="Fill" Width="250" Height="75">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="btn_Back" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,10,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="btn_Back_Click" >
+                    <TextBlock x:Name="tblBack" Text="CANCEL" TextWrapping="Wrap" TextAlignment="Center"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btn_OK" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_ItemButtons_Click" >
+                    <TextBlock x:Name="tblOK" Text="OK" TextWrapping="Wrap" TextAlignment="Center"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            </Viewbox>
+
+    </Grid>
+</Window>

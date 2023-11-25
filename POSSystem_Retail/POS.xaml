@@ -1,0 +1,350 @@
+﻿<Window x:Class="POSSystem_Retail.POS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Retail"
+        mc:Ignorable="d"
+        Title="POS" WindowState="Maximized"
+        WindowStartupLocation="CenterScreen" Width="1920" Height="1050" 
+        
+        KeyDown="GrdItems_KeyDown"
+        
+        
+        >
+    <Window.Resources>
+        <Style x:Key="MainButtons" TargetType="Button">
+            <Setter Property="Background" Value="CornflowerBlue"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <TextBlock Text="{TemplateBinding Content}" FontSize="20" TextWrapping="Wrap"/>
+                    </ControlTemplate>
+
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="GridPOS" KeyboardNavigation.DirectionalNavigation="None" >
+
+        <Viewbox Margin="10,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Stretch="Fill" >
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,150,800">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,-1,0" >
+                        <StackPanel Orientation="Vertical" Margin="10,10">
+                            <Border Width="75" Height="100" BorderThickness="0" BorderBrush="Black">
+                                <Image x:Name="Image_CompanyLogo"/>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="10,10">
+                            <TextBlock FontSize="15" Text="Date:"/>
+                            <TextBlock FontSize="15" Text="Cashier:"/>
+                            <TextBlock FontSize="15" Text="Terminal:"/>
+                    </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="10,10" Width="250">
+                            <TextBlock FontSize="15" Name="tblDate"/>
+                            <TextBlock FontSize="15" Name="tblCashier"/>
+                            <TextBlock FontSize="15" Name="tblTerminal"/>
+                            <TextBlock FontSize="15" Name="tblCustomer"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="10,10">
+                            <TextBlock FontSize="15" Text="Doc Number:"/>
+                            <TextBlock FontSize="15" Text="Doc Date:"/>
+                            <TextBlock FontSize="15" Text=""/>
+                            <TextBlock FontSize="15" Text=""/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="10,10" Width="250">
+                            <TextBlock FontSize="15" Name="tblDocNumber"/>
+                            <TextBlock FontSize="15" Name="tblDocDate"/>
+                            <TextBlock FontSize="15" Name="tbl1"/>
+                            <TextBlock FontSize="15" Name="tbl2"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock x:Name="tblDocType" FontSize="40" Text="TYPE: SALE" />
+                        <TextBlock x:Name="tblDocumentTotal" FontSize="40" Text="TOTAL: R100.00"/>
+                    </StackPanel>
+                </StackPanel>           
+        </Viewbox>
+
+        
+
+
+        <Viewbox Margin="10,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" >
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0" >
+
+                    <DataGrid x:Name="grdItems" Margin="0,0,0,0" HorizontalAlignment="Left" Height="400" Width="750"
+                                AutoGenerateColumns="False"
+                                CanUserAddRows="False"  
+                                HorizontalScrollBarVisibility="Disabled"             
+                                RowHeight="30"
+                                FontSize="15"
+                                IsReadOnly="False"
+                                AlternatingRowBackground="LightGray"
+                                SelectedValuePath="Id"
+                                KeyboardNavigation.DirectionalNavigation="None"
+                                Focusable="False"
+                              
+                                IsEnabled="True"
+                                Background="LightGray"
+                                Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=DataGridRow}}"
+                                FontWeight="Bold"
+                                IsHitTestVisible="False" RowHeaderWidth="0"
+                              >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="CornflowerBlue"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="CornflowerBlue"/>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Item}" Width="300" Header="Item"/>
+                            <DataGridTextColumn Binding="{Binding Qty}" Width="120" Header="Qty"/>
+                            <DataGridTextColumn Binding="{Binding UnitPrice}" Width="150" Header="Unit Price"/>
+                            <DataGridTextColumn Binding="{Binding Total}" Width="300" Header="Sub Total"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button x:Name="btn_Up" FontSize="50"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Background="LightGreen" Height="80" Width="120" Click="Btn_Up_Click">
+                            <TextBlock Text="🡅" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Down" FontSize="50" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" Background="LightGreen" Height="80" Width="120" Click="Btn_Down_Click">
+                            <TextBlock Text="🡇" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Qty" FontSize="25"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="120" Click="Btn_Qty_Click">
+                            <TextBlock Text="🧮      QTY" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Remove" FontSize="25" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="150" Click="Btn_Remove_Click">
+                            <TextBlock Text="🗑   REMOVE" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_PriceChange" FontSize="25" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="180" Click="Btn_PriceChange_Click">
+                            <TextBlock Text="✎                 PRICE CHANGE" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>                        
+                        
+
+                    </StackPanel>
+
+                    
+                        <StackPanel Margin="0,0,0,0">
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Button x:Name="btn_PrintLastSlip" FontSize="25" Content="PRINT LAST SLIP" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Bottom" Background="CornflowerBlue" Height="80" Width="200" Click="btn_PrintLastSlip_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                                <TextBlock Name="tbl_Change" Margin="10,0,0,10" Text="Last Sale Change: R100.00" FontSize="35" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+                    
+
+
+
+
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,0,10,200" >
+                    <StackPanel Orientation="Horizontal" Margin="0,0" >
+                        <TextBox x:Name="tbx_Barcode" FontSize="30" HorizontalContentAlignment="Center" Height="50" Margin="0,0,0,10" Width="369" GotFocus="Tbx_Barcode_GotFocus" LostFocus="Tbx_Barcode_LostFocus" KeyUp="Tbx_Barcode_KeyUp" PreviewKeyUp="GrdItems_KeyDown"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0" >
+                        <Button x:Name="btn_One" FontSize="25" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="Btn_One_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Two" FontSize="25" Content="2" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Two_Click" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Three" FontSize="25" Content="3" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Three_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0">
+                        <Button x:Name="btn_Four" FontSize="25" Content="4" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Four_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Five" FontSize="25" Content="5" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="120" Height="80" Click="Btn_Five_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Six" FontSize="25" Content="6" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Six_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_Seven" FontSize="25" Content="7" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Seven_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Eight" FontSize="25" Content="8" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Eight_Click" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Nine" FontSize="25" Content="9" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Nine_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_Clear" FontSize="25" Content="⌧ CLEAR" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Clear_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Zero" FontSize="25" Content="0" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Zero_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Enter" FontSize="25" Content="↵ ENTER" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"  Width="120" Height="80" Click="Btn_Enter_Click">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>                        
+                        </StackPanel>
+                    
+
+                </StackPanel>
+               
+                <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                        <Button x:Name="btn_Pay" FontSize="30"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Background="Green" Width="135" Height="90" Click="Btn_Pay_Click">
+                            <TextBlock x:Name="tblPay" Text="🛒      PAY" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Onde1" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_Onde1_Click">
+                            <TextBlock x:Name="tblVoid" Text="🚫      VOID" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_SuspendSale" FontSize="25" HorizontalAlignment="Left" Margin="0,5,0,0"  VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_SuspendSale_Click">
+                            <TextBlock x:Name="tblSuspendResume" Text="✋ SUSPEND" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Return"  FontSize="25" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"  Background="CornflowerBlue"  Width="135" Height="75" Click="btn_Return_Click">
+                            <TextBlock Text="⮏   RETURN" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_Search" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_Search_Click" >
+                            <TextBlock x:Name="tblSearch" Text="🔍 SEARCH" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_ItemButtons" FontSize="25"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Background="CornflowerBlue" Width="135" Height="75" Click="Btn_ItemButtons_Click" >
+                            <TextBlock x:Name="tblItemButtons" Text="📦     ITEMS" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="btn_LogOut" FontSize="25"  HorizontalAlignment="Right" Margin="0,5,10,10" VerticalAlignment="Bottom" Background="Yellow" Width="135" Height="80" Click="Btn_LogOut_Click">
+                            <TextBlock x:Name="tblLogout" Text="🗝        LOG OUT" TextWrapping="Wrap" TextAlignment="Center"/>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    
+                </StackPanel>
+                
+                
+            </StackPanel>     
+        </Viewbox>
+
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,73 @@
+﻿<Window x:Class="POSSystem_Manager.SalesHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Manager"
+        mc:Ignorable="d"
+        Title="Sales History" 
+        WindowState="Maximized"
+        Width="1250"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+       
+       
+        <StackPanel Orientation="Vertical" Margin="0,10,0,10">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lbl_DocNum" Content="Doc Num:" FontSize="15" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="80"/>
+                <TextBox x:Name="tbx_DocNum" FontSize="15" TabIndex="0" HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="tbx_DocNum_KeyUp"  />
+                <Label x:Name="lbl_name" Content="Date:" FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="50"/>
+                <DatePicker Name="DateStart" Height="25" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0" SelectedDateChanged="DateStart_SelectedDateChanged" />
+                <Label x:Name="lbl_loginname" Content="User:" FontSize="15" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="50"/>
+                <TextBox x:Name="tbx_UserName" FontSize="15" TabIndex="0" HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="tbx_UserName_KeyUp"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lbl_Terminal" Content="Terminal:" FontSize="15" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="80"/>
+                <TextBox x:Name="tbx_Terminal" FontSize="15" TabIndex="0" HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="tbx_Terminal_KeyUp"  />
+                <Label x:Name="lbl_ShiftId" Content="Shift Id:" FontSize="15" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="60"/>
+                <TextBox x:Name="tbx_ShiftId" FontSize="15" TabIndex="0" HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="150" KeyUp="tbx_ShiftId_KeyUp"  />
+            </StackPanel>
+        </StackPanel>
+        
+
+
+        <DataGrid AutoGenerateColumns="False" Name="grdSalesHistory" Margin="10,80,10,10" 
+                  CanUserAddRows="False"  
+                  HorizontalScrollBarVisibility="Visible"                 
+                  RowHeight="25"
+                  FontSize="15"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="LightGray"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding DocumentNumber}" Width="150" Header="Document Number"/>
+                <DataGridTextColumn Binding="{Binding Status}" Width="100" Header="Status"/>
+                <DataGridTextColumn Binding="{Binding Type}" Width="100" Header="Type" />
+                <DataGridTextColumn Binding="{Binding Date}" Width="180" Header="Date" />
+                <DataGridTextColumn Binding="{Binding User}" Width="150" Header="User" />
+                <DataGridTextColumn Binding="{Binding TerminalName}" Width="150" Header="Terminal" />
+                <DataGridTextColumn Binding="{Binding ShiftId}" Width="75" Header="Shift Id" />
+                <DataGridTemplateColumn Header="Items" Width="85">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <Button Content="{Binding Items}" Click="Button_Click" Background="LightBlue">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding TenderedCashTotal}" Width="110" Header="Tendered Cash" />
+                <DataGridTextColumn Binding="{Binding TenderedCardTotal}" Width="110" Header="Tendered Card" />
+                <DataGridTextColumn Binding="{Binding TenderedTotal}" Width="110" Header="Tendered Total" />
+                <DataGridTextColumn Binding="{Binding DocumentTotal}" Width="115" Header="Document Toal" />
+            </DataGrid.Columns>
+            
+        </DataGrid>
+    </Grid>
+</Window>

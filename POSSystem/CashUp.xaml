@@ -1,0 +1,73 @@
+﻿<Window x:Class="POSSystem_Manager.CashUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Manager"
+        mc:Ignorable="d"
+        Title="Cash Up" 
+        WindowState="Maximized"
+        Width="1250"
+        WindowStartupLocation="CenterScreen" Height="426">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="0,0,0,360">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label x:Name="lbl_loginname" Content="User Name:" FontSize="15" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="94"/>
+                <TextBox x:Name="tbx_UserName" FontSize="15" TabIndex="0" HorizontalAlignment="Center" Height="24" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="200" KeyUp="tbx_UserName_KeyUp"  />
+                <Label x:Name="lbl_name" Content="Date Start:" FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="-2.263,-0.154" Width="83"/>
+                <DatePicker Name="DateStart" Height="25" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,3,0,0" SelectedDateChanged="DateStart_SelectedDateChanged" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Vertical" Margin="10,50,10,10">
+            <Label x:Name="label1" FontSize="15" Content="Edit the [Card Mahine Total] column and right click to Create/Confirm Denominations:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.237,-0.038" Width="600"/>
+            <DataGrid AutoGenerateColumns="False" Name="grdShifts" Height="150" 
+                  CanUserAddRows="False"  
+                  HorizontalScrollBarVisibility="Visible"                 
+                  RowHeight="25"
+                  FontSize="15"                 
+                  AlternatingRowBackground="LightGray"  
+                  MouseLeftButtonUp="grdShifts_MouseLeftButtonUp"
+                  SelectedCellsChanged="grdShifts_SelectedCellsChanged"
+                  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding FullName}" Width="200" Header="User Name" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding ShiftStatus}" Width="150" Header="Shift Status" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding CashUpStatus}" Width="150" Header="Cash Up Status" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding StartDate}" Width="200" Header="Start Date" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding StartFloat}" Width="150" Header="Start Float" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding CardMachineTotal}" Width="150" Header="Card Machine Total" IsReadOnly="False" />
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Create Denominations" FontSize="15" Click="MenuItem_Click" />
+                        <MenuItem Header="Confirm Denominations / End Cash Up" FontSize="15" Click="MenuItem_Click_1" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+            <Label x:Name="label" FontSize="15" Content="Edit the [Denomination Count] Column. Use arrows and enter key for faster editing." HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.237,-0.038" Width="600"/>
+            <DataGrid   AutoGenerateColumns="False" x:Name="grdCashUp" Margin="0,0,0,0"
+                            CanUserAddRows="False"  
+                            HorizontalScrollBarVisibility="Visible"                 
+                            RowHeight="25"
+                            FontSize="15"
+                            IsReadOnly="False"
+                            AlternatingRowBackground="LightGray"              
+                            SelectedCellsChanged="grdCashUp_SelectedCellsChanged"
+                            RowHeaderWidth="0"
+                  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding LineId}" Width="50" Header="Id" Visibility="Hidden" />
+                    <DataGridTextColumn Binding="{Binding DenominationName}" Width="200" Header="Denomination Name" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding DenominationValue}" Width="200" Header="Denomination Value" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding DenominationCount}" Width="200" Header="Denomination Count" IsReadOnly="False"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</Window>

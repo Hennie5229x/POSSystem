@@ -1,0 +1,113 @@
+﻿<Window x:Class="POSSystem.LookUp_ItemMaster_Items"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem"
+        mc:Ignorable="d"
+        Title="Item Search" Height="340.00" Width="630.00"  
+        WindowStartupLocation="CenterScreen"
+       
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <DataGrid   AutoGenerateColumns="False" 
+                    x:Name="grdLookUpItems" 
+                    CanUserAddRows="False"  
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Visible"
+                    RowHeight="25"
+                    FontSize="15"
+                    IsReadOnly="True" 
+                    RowHeaderWidth="0"
+                    PreviewMouseLeftButtonUp="GrdLookUpItems_PreviewMouseLeftButtonUp" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="50" Visibility="Hidden" >
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"                                           
+                                           Width="40"
+                                           Margin="0"
+                                           TextAlignment="Center"/>
+                                <TextBox x:Name="tbx_Id" Grid.Column="1" Width="40"  Visibility="Visible" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ItemCode}"
+                                    Header="Item Code"
+                                    Width="200">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                           Width="190"
+                                           Margin="0"
+                                           TextAlignment="Center"/>
+                                <TextBox x:Name="tbx_ItemCode" Grid.Column="1" Width="190"  Visibility="Visible" TextChanged="tbTest_TextChanged" Loaded="Tbx_ItemCode_Loaded" ></TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ItemName}"
+                                    Header="Item Name"
+                                    Width="200">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                           Width="190"
+                                           Margin="0"
+                                           TextAlignment="Center"/>
+                                <TextBox x:Name="tbx_ItemName" Grid.Column="1" Width="190"  Visibility="Visible" TextChanged="tbTest_TextChanged" Loaded="Tbx_ItemName_Loaded"></TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Barcode}"
+                                    Header="Barcode"
+                                    Width="200">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                           Width="190"
+                                           Margin="0"
+                                           TextAlignment="Center"/>
+                                <TextBox x:Name="tbx_ItemBarcode" Grid.Column="1" Width="190"  Visibility="Visible" TextChanged="tbTest_TextChanged" Loaded="Tbx_ItemBarcode_Loaded"></TextBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="tbx_ItemCode" FontSize="15" Height="24" Width="200" KeyUp="Tbx_ItemCode_KeyUp"/>
+                <TextBox x:Name="tbx_ItemName" FontSize="15" Height="24" Width="200" KeyUp="Tbx_ItemName_KeyUp"/>
+                <TextBox x:Name="tbx_ItemBarcode" FontSize="15" Height="24" Width="200" KeyUp="Tbx_ItemBarcode_KeyUp"/>
+            </StackPanel >
+            <StackPanel Orientation="Horizontal">
+                <DataGrid AutoGenerateColumns="False" x:Name="grdLookUpItems" Margin="0,0,10,0" 
+                  CanUserAddRows="False"  
+                  HorizontalScrollBarVisibility="Visible"                 
+                  RowHeight="25"
+                  FontSize="15"
+                  IsReadOnly="True" Height="265" 
+                  RowHeaderWidth="0"
+                  PreviewMouseLeftButtonUp="GrdLookUpItems_PreviewMouseLeftButtonUp"                     
+                  >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Width="50" Header="Id" Visibility="Hidden"/>
+                        <DataGridTextColumn Binding="{Binding ItemCode}" Width="200" Header="Item Code"/>
+                        <DataGridTextColumn Binding="{Binding ItemName}" Width="200" Header="Item Name"/>
+                        <DataGridTextColumn Binding="{Binding Barcode}" Width="200" Header="Barcode"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+        -->
+    </Grid>
+</Window>

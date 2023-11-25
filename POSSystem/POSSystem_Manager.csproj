@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FC58A76-BABE-4E62-B5C6-41896745C97B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>POSSystem_Manager</RootNamespace>
+    <AssemblyName>POSSystem_Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>E:\DATA\POS System\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>64F319DE33A92BE7C9A5C469CC0A561E4D7D0ECB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>POSSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\trollyicon_8Al_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.3\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.12.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.12.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelLibrary">
+      <HintPath>..\..\..\..\Downloads\ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ByteImageConverter.cs" />
+    <Compile Include="CompanyInfo.xaml.cs">
+      <DependentUpon>CompanyInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseConnection.xaml.cs">
+      <DependentUpon>DatabaseConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryLog.xaml.cs">
+      <DependentUpon>HistoryLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemGroups.xaml.cs">
+      <DependentUpon>ItemGroups.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemGroups_Add.xaml.cs">
+      <DependentUpon>ItemGroups_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemGroups_Update.xaml.cs">
+      <DependentUpon>ItemGroups_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LookUp_ItemMaster_Items.xaml.cs">
+      <DependentUpon>LookUp_ItemMaster_Items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Denominations.xaml.cs">
+      <DependentUpon>Denominations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printers.xaml.cs">
+      <DependentUpon>Printers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Denominations_Add.xaml.cs">
+      <DependentUpon>Denominations_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CashUp.xaml.cs">
+      <DependentUpon>CashUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalesHistoryLines.xaml.cs">
+      <DependentUpon>SalesHistoryLines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalesHistory.xaml.cs">
+      <DependentUpon>SalesHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfMeasures_Update.xaml.cs">
+      <DependentUpon>UnitOfMeasures_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfMeasures_Add.xaml.cs">
+      <DependentUpon>UnitOfMeasures_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printers_Add.xaml.cs">
+      <DependentUpon>Printers_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printers_Update.xaml.cs">
+      <DependentUpon>Printers_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PublicVariables.cs" />
+    <Compile Include="ResetPassword.xaml.cs">
+      <DependentUpon>ResetPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityObjects.cs" />
+    <Compile Include="Security_RoleGroups.xaml.cs">
+      <DependentUpon>Security_RoleGroups.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_Add.xaml.cs">
+      <DependentUpon>Security_RoleGroups_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_RoleGroupObjects.xaml.cs">
+      <DependentUpon>Security_RoleGroups_RoleGroupObjects.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_RoleGroupObjects_Add.xaml.cs">
+      <DependentUpon>Security_RoleGroups_RoleGroupObjects_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_RoleGroupUsers.xaml.cs">
+      <DependentUpon>Security_RoleGroups_RoleGroupUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_RoleGroupUsers_Add.xaml.cs">
+      <DependentUpon>Security_RoleGroups_RoleGroupUsers_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security_RoleGroups_Update.xaml.cs">
+      <DependentUpon>Security_RoleGroups_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts.xaml.cs">
+      <DependentUpon>Shifts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shifts_New.xaml.cs">
+      <DependentUpon>Shifts_New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement.xaml.cs">
+      <DependentUpon>StockManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement_AddCompoundItem.xaml.cs">
+      <DependentUpon>StockManagement_AddCompoundItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement_AddItem.xaml.cs">
+      <DependentUpon>StockManagement_AddItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement_UpdateCompoundItem.xaml.cs">
+      <DependentUpon>StockManagement_UpdateCompoundItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockManagement_UpdateItem.xaml.cs">
+      <DependentUpon>StockManagement_UpdateItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockReceive.xaml.cs">
+      <DependentUpon>StockReceive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockReceive_AddStock.xaml.cs">
+      <DependentUpon>StockReceive_AddStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockReceive_AddStock_UpdateItem.xaml.cs">
+      <DependentUpon>StockReceive_AddStock_UpdateItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockTake.xaml.cs">
+      <DependentUpon>StockTake.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockTake_CountStock.xaml.cs">
+      <DependentUpon>StockTake_CountStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers.xaml.cs">
+      <DependentUpon>Suppliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers_Add.xaml.cs">
+      <DependentUpon>Suppliers_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers_Update.xaml.cs">
+      <DependentUpon>Suppliers_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Terminals.xaml.cs">
+      <DependentUpon>Terminals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Terminals_Add.xaml.cs">
+      <DependentUpon>Terminals_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Terminals_Update.xaml.cs">
+      <DependentUpon>Terminals_Update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfMeasures.xaml.cs">
+      <DependentUpon>UnitOfMeasures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserId.cs" />
+    <Compile Include="UserManagement.xaml.cs">
+      <DependentUpon>UserManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement_ActiveInactive.xaml.cs">
+      <DependentUpon>UserManagement_ActiveInactive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement_AddUser.xaml.cs">
+      <DependentUpon>UserManagement_AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement_PasswordReset.xaml.cs">
+      <DependentUpon>UserManagement_PasswordReset.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement_UpdateUser.xaml.cs">
+      <DependentUpon>UserManagement_UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CompanyInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DashBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DatabaseConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemGroups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemGroups_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemGroups_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LookUp_ItemMaster_Items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Denominations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Printers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Denominations_Add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CashUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalesHistoryLines.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalesHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UnitOfMeasures_Update.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UnitOfMeasures_Add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Printers_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Printers_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResetPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_RoleGroupObjects.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_RoleGroupObjects_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_RoleGroupUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_RoleGroupUsers_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security_RoleGroups_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shifts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shifts_New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement_AddCompoundItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement_AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement_UpdateCompoundItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockManagement_UpdateItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockReceive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockReceive_AddStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockReceive_AddStock_UpdateItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockTake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockTake_CountStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Suppliers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Suppliers_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Suppliers_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Terminals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Terminals_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Terminals_Update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UnitOfMeasures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement_ActiveInactive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement_AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement_PasswordReset.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement_UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trollyicon_8Al_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\refreshIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TempFiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

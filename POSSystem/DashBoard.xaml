@@ -1,0 +1,79 @@
+﻿<Window x:Class="POSSystem.DashBoard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:POSSystem"
+        mc:Ignorable="d"
+        Title="DashBoard" 
+        WindowState="Maximized"       
+        WindowStartupLocation="CenterScreen" Height="640"
+        ContextMenuClosing="Window_ContextMenuClosing" Width="1200" SizeChanged="Window_SizeChanged"
+        >
+    <Grid Background="#FFE4EBFF" >
+
+        <DockPanel HorizontalAlignment="Left" Height="42" LastChildFill="False" VerticalAlignment="Top" Width="9999">
+            <Menu DockPanel.Dock="Top" Height="32" FontSize="20">
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Launch POS Retail" Click="MenuLaunchPOS_Click" />
+                    <MenuItem Header="_Logout" Click="MenuItemLogout_Click" />
+                    <MenuItem Header="_Exit" Click="MenuItem_Click" />
+                </MenuItem>
+                <MenuItem Header="_Setup">
+                    <MenuItem Header="_Company Information" Click="MenuItem_Click_6" />
+                    <MenuItem Header="_Suppliers" Click="MenuItem_Click_8" />
+                    <MenuItem Header="_Printers" Click="MenuItem_Click_10" />
+                    <MenuItem Header="_Terminals" Click="MenuItem_Click_11" />
+                    <MenuItem Header="_Unit of Measures (UoM)" Click="MenuItem_Click_13" />
+                    <MenuItem Header="_Denominations" Click="MenuItem_Click_14" />
+                </MenuItem>
+                <MenuItem Header="_View">
+                    <MenuItem Header="_History Log"  Click="MenuItem_Click_1"/>
+                </MenuItem>
+                <MenuItem Header="_Users Management">
+                    <MenuItem Header="_Users"  Click="MenuItem_Click_3"/>
+                    <MenuItem Header="_Security"  Click="MenuItem_Click_2"/>
+                </MenuItem>
+                <MenuItem Header="_Stock Management">
+                    <MenuItem Header="_Item Groups"  Click="MenuItem_Click_7"/>
+                    <MenuItem Header="_Item Master"  Click="MenuItem_Click_4"/>
+                    <MenuItem Header="_Promotions"  Click="MenuItem_Click_4"/>
+                    <MenuItem Header="_Stock Receive"  Click="MenuItem_Click_5"/>
+                    <MenuItem Header="_Stock Take"  Click="MenuItem_Click_9"/>
+                </MenuItem>
+                <MenuItem Header="_Point of Sale">
+                    <MenuItem Header="_Sales History"  Click="MenuItem_Click_16"/>
+                    <MenuItem Header="_Sales Returns"  Click="MenuItem_Click_17"/>
+                    <MenuItem Header="_Shifts"  Click="MenuItem_Click_12"/>
+                    <MenuItem Header="_Cash Up"  Click="MenuItem_Click_15"/>
+
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Button Content="Refresh Graph" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="108" Margin="1040,55,0,0" Click="Button_Click"/>
+        <Label x:Name="label" Content="Messages:" FontSize="20" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="99"/>
+
+        <ListBox x:Name="listBox"  Margin="10,89,0,10" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Width="365"/>
+
+        <Canvas Name="Canvas_Graph" Margin="380,89,10,10" Background="white" />
+
+        <Label x:Name="label_Copy" Content="Sales History" FontSize="20" HorizontalAlignment="Left" Margin="380,47,0,0" VerticalAlignment="Top" Width="127"/>
+        <ComboBox x:Name="Cmbx" SelectedValuePath="Id" Width="186" Margin="507,55,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" SelectionChanged="Cmbx_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="tb_Id" Text="{Binding Id}" Visibility="Collapsed"/>
+                        <TextBlock x:Name="tb_Name" Text="{Binding Option}" Padding="10,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker Name="DateFrom" Height="25" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="698,55,0,0" SelectedDateChanged="DateFrom_SelectedDateChanged"/>
+        <Label Content="to" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="854,54,0,0"/>
+        <DatePicker Name="DateTo" Height="25" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="880,55,0,0" SelectedDateChanged="DateTo_SelectedDateChanged"/>
+
+
+
+
+    </Grid>
+</Window>

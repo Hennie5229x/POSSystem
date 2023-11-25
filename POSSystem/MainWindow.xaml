@@ -1,0 +1,67 @@
+﻿<Window x:Class="POSSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem"
+        mc:Ignorable="d"
+        Title="POS System: Login" 
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        FocusManager.FocusedElement="{Binding ElementName=tbx_LoginName}" Height="844"        
+        >
+
+    <Grid >
+
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" VerticalAlignment="Top"  Width="9999" >
+            <Menu DockPanel.Dock="Top" Height="23" FontSize="15">
+                <MenuItem Header="_Opstions">
+                    <MenuItem Header="_Launch POS Retail" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="_Database Connection" Click="MenuItem_Click_2"/>
+                    <MenuItem Header="_Exit" Click="MenuItem_Click" />                  
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Border BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="153,150,153,0" Height="246" Background="CornflowerBlue" 
+                CornerRadius="10"
+            >
+            <Border.Effect>
+                <DropShadowEffect />
+            </Border.Effect>
+            
+            <StackPanel Orientation="Vertical"  Margin="20,40,20,8">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Margin="10" Text="Login Name:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="" x:Name="tbx_LoginName" FontSize="15" Height="28" Margin="10" TextWrapping="Wrap"  Width="200" TabIndex="0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Password:" Margin="10" Width="150"/>
+                    <PasswordBox Password="" x:Name="tbx_Password" FontSize="15" Height="28" Margin="10"  Width="200" TabIndex="1" KeyDown="Tbx_Password_KeyDown"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btn_Reset" FontSize="20" Content="Reset Password" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" Width="200" Height="44" Click="Btn_Reset_Click" TabIndex="2">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                            <Button x:Name="btn_Login" FontSize="20" Content="Login" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="200" Height="44" Click="Btn_Login_Click" TabIndex="2">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+
+
+
+
+
+
+    </Grid>
+</Window>

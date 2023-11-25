@@ -1,0 +1,27 @@
+﻿<Window x:Class="POSSystem_Retail.ErrorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Retail"
+        mc:Ignorable="d"
+        Height="250" Width="600"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/Error Icon 1.png"
+        Background= "LightGray"
+        KeyUp="Window_KeyUp"
+        >
+
+    <Grid>
+        <Image Name="ErrorIcon" Margin="10,10,0,0" Width="120" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/Error Icon 3.png"/>
+        <TextBlock Name="tbx_ErrorMessage" TextWrapping="Wrap" HorizontalAlignment="Center"  FontSize="30" Text="ERROR ERROR ERROR ERROR " Margin="135,10,10,75" Height="136"/>
+        <Button x:Name="btn_OK" FontSize="25" Content="OK" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Background="CornflowerBlue" Width="120" Height="60" Click="Btn_OK_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

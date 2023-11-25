@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem_Manager", "POSSystem\POSSystem_Manager.csproj", "{7FC58A76-BABE-4E62-B5C6-41896745C97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSSystem_Retail", "POSSystem_Retail\POSSystem_Retail.csproj", "{6CA2C359-0B1E-4F0F-9408-1F0368C8F52C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FC58A76-BABE-4E62-B5C6-41896745C97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC58A76-BABE-4E62-B5C6-41896745C97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC58A76-BABE-4E62-B5C6-41896745C97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC58A76-BABE-4E62-B5C6-41896745C97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA2C359-0B1E-4F0F-9408-1F0368C8F52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA2C359-0B1E-4F0F-9408-1F0368C8F52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA2C359-0B1E-4F0F-9408-1F0368C8F52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA2C359-0B1E-4F0F-9408-1F0368C8F52C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F0168E1-B320-42B6-9647-6ECFEF3C91EB}
+	EndGlobalSection
+EndGlobal

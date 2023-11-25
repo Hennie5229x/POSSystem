@@ -1,0 +1,38 @@
+﻿<Window x:Class="POSSystem_Manager.SalesHistoryLines"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Manager"
+        mc:Ignorable="d"
+        Title="Sales History Items" 
+        WindowState="Maximized"
+        Width="1250"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+       
+        <DataGrid AutoGenerateColumns="False" Name="grdSalesHistoryLines" Margin="10,10,10,10" 
+                  CanUserAddRows="False"  
+                  HorizontalScrollBarVisibility="Visible"                 
+                  RowHeight="25"
+                  FontSize="15"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="LightGray"
+                  >
+            <DataGrid.Columns>               
+                <DataGridTextColumn Binding="{Binding ItemCode}" Width="100" Header="Item Code"/>
+                <DataGridTextColumn Binding="{Binding ItemName}" Width="250" Header="Item Name"/>
+                <DataGridTextColumn Binding="{Binding Quantity}" Width="80" Header="Quantity" />
+                <DataGridTextColumn Binding="{Binding Price}" Width="100" Header="Price Sold" />
+                <DataGridTextColumn Binding="{Binding LineTotal}" Width="100" Header="Line Total" />
+                <DataGridTextColumn Binding="{Binding PriceChanged}" Width="110" Header="Price Changed" />
+                <DataGridTextColumn Binding="{Binding FullSellPrice}" Width="110" Header="Full Sell Price" />
+                <DataGridTextColumn Binding="{Binding FullDiscountPercentage}" Width="100" Header="Discount %" />
+                <DataGridTextColumn Binding="{Binding IsPromotion}" Width="100" Header="Is Promotion" />
+                <DataGridTextColumn Binding="{Binding PromoName}" Width="150" Header="Promotion Name" />
+            </DataGrid.Columns>
+            
+        </DataGrid>
+    </Grid>
+</Window>

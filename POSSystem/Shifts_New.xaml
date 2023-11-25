@@ -1,0 +1,51 @@
+﻿<Window x:Class="POSSystem_Manager.Shifts_New"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Manager"
+        mc:Ignorable="d"
+        Title="New Shift" Height="200" Width="401.639"
+         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="20,20,10,10">
+           
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="User: " Width="150" />
+                <ComboBox x:Name="Cmbx" SelectedValue="{Binding Id}" SelectedValuePath="Id" Height="24" Width="200" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="tb_Id" Text="{Binding Id}" Visibility="Collapsed"/>
+                                <TextBlock x:Name="tb_Name" Text="{Binding Name}" Padding="10,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Starting Float:" Width="150"/>
+                <TextBox Name="tbx_StartingFloat" FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Width="200" Height="24"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal"/>
+        </StackPanel>
+        <Button x:Name="btnCancel" FontSize="15" Content="Back" HorizontalAlignment="Left" Margin="286,120,0,0" VerticalAlignment="Top" Width="82" Height="34" Click="BtnCancel_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnNewShift" FontSize="15" Content="Add Shift" HorizontalAlignment="Left" Margin="191,120,0,0" VerticalAlignment="Top" Width="90" Height="34" Click="btnNewShift_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

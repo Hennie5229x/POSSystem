@@ -1,0 +1,33 @@
+﻿<Window x:Class="POSSystem_Retail.MessageDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem_Retail"
+        mc:Ignorable="d"
+        Height="250" Width="600"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/Error Icon 1.png"
+        Background= "LightGray"
+        KeyUp="Window_KeyUp"
+        >
+
+    <Grid>        
+        <TextBlock Name="tbx_Message" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="30" Text="MESSAGE MESSAGE MESSAGE" Margin="10,10,10,10" Height="150" Width="550"/>
+        <Button x:Name="btn_OK" FontSize="25" Content="OK" HorizontalAlignment="Right" Margin="10,0,140,10" VerticalAlignment="Bottom" Background="CornflowerBlue" Width="120" Height="60" Click="Btn_OK_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btn_Cancel" FontSize="25" Content="CANCEL" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Background="CornflowerBlue" Width="120" Height="60" Click="btn_Cancel_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

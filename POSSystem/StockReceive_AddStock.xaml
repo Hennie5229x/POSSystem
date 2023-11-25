@@ -1,0 +1,114 @@
+﻿<Window x:Class="POSSystem.StockReceive_AddStock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem"
+        mc:Ignorable="d"
+       Title="Receiving Stock"
+         WindowState="Maximized"
+       
+        WindowStartupLocation="CenterScreen" Width="1107">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="20,20,10,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Supplier:" Width="150"/>
+                <Border x:Name="Border_SupplierCmbx" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Width="201">
+                    <ComboBox x:Name="cmbx_Supplier" SelectedValuePath="Id" TabIndex="15" DropDownClosed="Cmbx_Supplier_DropDownClosed">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock x:Name="tb_Id" Text="{Binding Id}" Visibility="Collapsed"/>
+                                    <TextBlock x:Name="tb_Name" Text="{Binding SupplierName}" Padding="0,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Border>
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Invoice/GRV Num:" Width="150"/>
+                <TextBox FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_Invoice" Width="200" Height="24" KeyUp="Tbx_PricePurchaseIncl_KeyUp"/>
+                <TextBlock FontSize="15"  TextAlignment="Left" Padding="5" Text="Date Received:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_Date" Width="200" Height="24" KeyUp="Tbx_PricePurchaseIncl_KeyUp"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Item:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_Item" Width="200" Height="24" PreviewMouseLeftButtonUp="Tbx_LoginName_PreviewMouseLeftButtonUp" />
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Unit of Measure:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_UoM" Width="200" Height="24" SelectionBrush="#FF62D700" KeyUp="Tbx_QuantityReceiving_KeyUp"/>
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Quantity Receiving:" Width="150"/>
+                <TextBox FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_QuantityReceiving" Width="200" Height="24" SelectionBrush="#FF62D700" KeyUp="Tbx_QuantityReceiving_KeyUp"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Price Purchase Incl:" Width="150"/>
+                <TextBox FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_PricePurchaseIncl" Width="200" Height="24" KeyUp="Tbx_PricePurchaseIncl_KeyUp"/>
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Price Purchase Excl:" Width="150"/>
+                <TextBox FontSize="15" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_PricePurchaseExcl" Width="200" Height="24" KeyUp="Tbx_PricePurchaseExcl_KeyUp"/>
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Price Sell Incl:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_PriceSellIncl" Width="200" Height="24" KeyUp="Tbx_PricePurchaseExcl_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Invoice Total Incl:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_InvTotalIncl" Width="200" Height="24" KeyUp="Tbx_PricePurchaseIncl_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Invoice Total Excl:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_InvTotalExcl" Width="200" Height="24" KeyUp="Tbx_PricePurchaseExcl_KeyUp"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" TextAlignment="Left" Padding="5" Text="Invoice VAT:" Width="150"/>
+                <TextBox FontSize="15" IsReadOnly="True" Background="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="tbx_InvVat" Width="200" Height="24" KeyUp="Tbx_PricePurchaseExcl_KeyUp"/>
+                <Button x:Name="btnSaveStock" FontSize="15" Content="Save" HorizontalAlignment="Left" Margin="360,0,0,0" VerticalAlignment="Top" Width="106" Height="30" Click="BtnSaveStock_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnCancelStock" FontSize="15" Content="Cancel" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="106" Height="30" Click="BtnCancelStock_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnAddStock" FontSize="15" Content="Receive Stock" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="106" Height="30" Click="BtnAddStock_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+        <DataGrid AutoGenerateColumns="False" x:Name="grdStockReceiveTmp" Margin="10,214,10,10" 
+            CanUserAddRows="False"  
+            HorizontalScrollBarVisibility="Visible"             
+            RowHeight="25"
+            FontSize="15"
+            IsReadOnly="True" 
+           VerticalAlignment="Stretch"
+                      
+                      >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Width="160" Header="Id" Visibility="Collapsed"/>
+                <DataGridTextColumn Binding="{Binding ItemCode}" Width="150" Header="Item Code"/>
+                <DataGridTextColumn Binding="{Binding ItemName}" Width="200" Header="Item Name" />
+                <DataGridTextColumn Binding="{Binding QuantityReceived}" Width="100" Header="Qty Received" />
+                <DataGridTextColumn Binding="{Binding PricePurchaseExcl}" Width="150" Header="Price Purchase Excl" />
+                <DataGridTextColumn Binding="{Binding PricePurchaseIncl}" Width="150" Header="Price Purchase Incl" />
+                <DataGridTextColumn Binding="{Binding ReceivedByUser}" Width="200" Header="Received By" />
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Update" FontSize="15" Click="MenuItem_Click" />
+                    <MenuItem Header="Remove" FontSize="15" Click="MenuItem_Click_1" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+
+    </Grid>
+</Window>
