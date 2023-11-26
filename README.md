@@ -7,9 +7,9 @@ For a basic overview of the system please refer the [POS Basic Overview] documen
 Check out this video for a demonstration of the POS: YT LINK
 
 ### Scripts and Backups
-Find all T-SQL Tables, Views, Procedures and Functions in [POSSystem/SQL/]
-Find the complete T-SQL Schema create script in [POSSystem/Create Database Schema.sql]
-Find a Database backup with some of my own dummy data in [POSSystem/POSSystem.bak]
+* All T-SQL Tables, Views, Procedures and Functions in [POSSystem/SQL/]
+* Complete T-SQL Schema create script in [POSSystem/Create Database Schema.sql]
+* Database backup with some of my own dummy data in [POSSystem/POSSystem.bak]
 
 ### Some of the Features include:
 * Company Setup: Configure basic information about the company to be used in the POS system.
