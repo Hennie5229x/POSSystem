@@ -4,7 +4,7 @@
 
 For a basic overview of the system please refer the [POS Basic Overview] document in [POSSystem/POS Basic Overview.docx]
 
-Check out this video for a demonstration of the POS: YT LINK
+Quick 4min Demo on youtube: https://www.youtube.com/watch?v=CrgE6qstsGA
 
 ### Scripts and Backups
 * All T-SQL Tables, Views, Procedures and Functions in [POSSystem/SQL/]
