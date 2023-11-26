@@ -1,7 +1,10 @@
 # Point of Sale System (Retail)
 ### This is a Point of Sales system I wrote tailored to the retail market that covers a wide array of feutures.
+### I wrote the system C# in WPF and Microsoft SQL Server with a strong data driven approach.
 
 For a basic overview of the system please refer the [POS Basic Overview.docx] in [Hennie5229x/POSSystem/]
+Check out this video for a demonstration of the POS: YT LINK
+
 
 ### Some of the Features include:
 * Company Setup: Configure basic information about the company to be used in the POS system.
