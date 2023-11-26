@@ -1,10 +1,15 @@
 # Point of Sale System (Retail)
 ### This is a Point of Sales system I wrote tailored to the retail market that covers a wide array of feutures.
-### I wrote the system C# in WPF and Microsoft SQL Server with a strong data driven approach.
+### I wrote the system in C# (WPF) and Microsoft SQL Server with a strong data driven approach.
 
-For a basic overview of the system please refer the [POS Basic Overview.docx] in [Hennie5229x/POSSystem/]
+For a basic overview of the system please refer the [POS Basic Overview] document in [POSSystem/POS Basic Overview.docx]
+
 Check out this video for a demonstration of the POS: YT LINK
 
+### Scripts and Backups
+Find all T-SQL Tables, Views, Procedures and Functions in [POSSystem/SQL/]
+Find the complete T-SQL Schema create script in [POSSystem/Create Database Schema.sql]
+Find a Database backup with some of my own dummy data in [POSSystem/POSSystem.bak]
 
 ### Some of the Features include:
 * Company Setup: Configure basic information about the company to be used in the POS system.
